@@ -39,9 +39,6 @@ python3 src/download-transcript.py VIDEO_ID -f summary
 # 自動分段章節
 python3 src/download-transcript.py VIDEO_ID -f chapters
 
-# 指定語言偏好
-python3 src/download-transcript.py VIDEO_ID -l zh,en
-
 # 自訂標題
 python3 src/download-transcript.py VIDEO_ID -t "我的標題"
 
@@ -51,22 +48,33 @@ python3 src/download-transcript.py VIDEO_ID --no-translate
 
 ## 輸出格式
 
-| 格式 | 說明 | 輸出 |
-|------|------|------|
-| `blog` ⭐ | 部落格格式，全文逐字稿 | `out/{videoId}-{短標題}.md` |
-| `raw` | 純文字，無格式 | 同上 |
-| `timestamps` | 每行附 `[MM:SS]` | 同上 |
-| `summary` | 摘要預覽 | 同上 |
-| `chapters` | 每 3 分鐘自動分段 | 同上 |
+| 格式 | 說明 |
+|------|------|
+| `blog` ⭐ | 前端：重寫為段落式 Blog 文章；文末：`<details>` 收起逐字稿 |
+| `raw` | 純文字，無格式 |
+| `timestamps` | 每行附 `[MM:SS]` |
+| `summary` | 摘要預覽 |
+| `chapters` | 每 3 分鐘自動分段 |
+
+所有格式輸出至 `out/{videoId}-{短標題}.md`（標題截取前 20 字）。
+
+## 工作流程
+
+```
+下載字幕 → 腳本輸出逐字稿（collapsible）
+         → LLM 重寫為 Blog 文章（前端）
+         → git push → 手機可讀
+```
 
 ## 結構
 
 ```
 vendors/youtube/
 ├── README.md
+├── .gitignore
 ├── src/
 │   └── download-transcript.py   ← 主程式
-└── out/                         ← 預設輸出目錄
+└── out/                         ← 輸出目錄（git tracked）
 ```
 
 ## 支援的 URL 格式
