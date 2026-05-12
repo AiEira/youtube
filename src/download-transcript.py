@@ -4,18 +4,24 @@ YouTube Transcript Downloader
 Usage:
   python3 src/download-transcript.py <youtube-url>
   python3 src/download-transcript.py <youtube-url> -o out/
-  python3 src/download-transcript.py <youtube-url> -f blog -l zh,en
+  python3 src/download-transcript.py <youtube-url> -f blog
 """
 
 import argparse
 import os
 import re
 import sys
+import time
 import urllib.request
 import json
 from pathlib import Path
 
 from youtube_transcript_api import YouTubeTranscriptApi
+
+
+# Language priority: yue → zh-Hant → zh-Hans → en
+LANG_ORDER = ['yue', 'zh-Hant', 'zh-Hans', 'en']
+ZH_HANT = 'zh-Hant'
 
 
 def extract_video_id(url_or_id: str) -> str:
@@ -49,31 +55,95 @@ def get_video_title(video_id: str) -> str:
 
 def sanitize_filename(text: str, max_len: int = 20) -> str:
     """Convert title to filename-safe short form (keep first N chars)."""
-    # Remove special chars, keep Chinese/English/digits
     cleaned = re.sub(r'[^\w\u4e00-\u9fff-]', '', text.replace(' ', '-'))
     if len(cleaned) > max_len:
         cleaned = cleaned[:max_len]
     return cleaned or 'transcript'
 
 
-def format_blog(title: str, video_id: str, url: str, transcript: list) -> str:
-    """Format transcript as a blog post."""
+def fetch_transcript_with_fallback(api, video_id: str, languages: list):
+    """Fetch transcript; if English fetched, also try zh-Hant translation."""
+    transcript = api.fetch(video_id, languages=languages)
+    detected_lang = _detect_language(transcript)
+    translation = None
+
+    # If we got English, try to get zh-Hant translation
+    if detected_lang == 'en':
+        try:
+            time.sleep(0.5)  # Small delay to avoid IP block
+            tlist = api.list(video_id)
+            en_track = tlist.find_transcript(['en'])
+            if en_track.is_translatable:
+                zh_track = en_track.translate(ZH_HANT)
+                translation = zh_track.fetch()
+            else:
+                print('   ⚠️  此影片不支援翻譯', file=sys.stderr)
+        except Exception as e:
+            print(f'   ⚠️  無法取得繁體中文翻譯: {e}', file=sys.stderr)
+
+    return transcript, detected_lang, translation
+
+
+def _detect_language(transcript) -> str:
+    """Guess language from first snippet text."""
+    if not transcript:
+        return 'unknown'
+    text = transcript[0].text
+    has_cjk = any('\u4e00' <= c <= '\u9fff' for c in text)
+    if has_cjk:
+        # Try to distinguish yue vs zh
+        # Simplified has chars like 么/们/实/东/国
+        simp_markers = set('么们实东国开关张机')
+        has_simp = any(c in text for c in simp_markers)
+        return 'zh-Hans' if has_simp else 'zh-Hant'  # default to zh-Hant if unsure
+    return 'en'
+
+
+def format_blog(title: str, video_id: str, url: str, transcript: list,
+                detected_lang: str = 'zh', translation: list = None) -> str:
+    """Format transcript as a blog post. If English + zh-Hant translation, include both."""
     lines = [
         f'# {title}',
         '',
         f'> 來源：[YouTube]({url})',
         f'> 長度：約 {int(transcript[-1].start + transcript[-1].duration) // 60} 分鐘',
-        f'> 語言：繁體中文（轉寫）',
+    ]
+
+    if translation:
+        lines.append(f'> 語言：英文 + 繁體中文翻譯')
+    elif detected_lang == 'en':
+        lines.append(f'> 語言：英文')
+    elif detected_lang.startswith('zh'):
+        lines.append(f'> 語言：粵語／中文')
+
+    lines += [
         f'> 整理：小初（Eira）',
         '',
         '---',
         '',
-        '## 全文逐字稿',
-        '',
     ]
-    for s in transcript:
-        lines.append(s.text)
+
+    if translation:
+        # Dual language: en paragraphs then zh-Hant paragraphs
+        lines.append('## 英文原文')
         lines.append('')
+        for s in transcript:
+            lines.append(s.text)
+            lines.append('')
+        lines.append('---')
+        lines.append('')
+        lines.append('## 繁體中文翻譯')
+        lines.append('')
+        for s in translation:
+            lines.append(s.text)
+            lines.append('')
+    else:
+        lines.append('## 全文逐字稿')
+        lines.append('')
+        for s in transcript:
+            lines.append(s.text)
+            lines.append('')
+
     return '\n'.join(lines)
 
 
@@ -91,8 +161,9 @@ def format_raw(transcript: list) -> str:
     return '\n'.join(s.text for s in transcript)
 
 
-def format_summary(title: str, url: str, transcript: list) -> str:
-    """Basic summary format (placeholder — real summarization needs LLM)."""
+def format_summary(title: str, url: str, transcript: list,
+                   detected_lang: str = 'zh', translation: list = None) -> str:
+    """Basic summary format."""
     total_sec = transcript[-1].start + transcript[-1].duration
     lines = [
         f'# {title}',
@@ -119,10 +190,9 @@ def format_summary(title: str, url: str, transcript: list) -> str:
 def format_chapters(transcript: list) -> str:
     """Generate timestamp-based chapter markers (every ~3 minutes)."""
     lines = ['## 章節（依時間自動分段）', '']
-    chunk_sec = 180  # 3 minutes
+    chunk_sec = 180
     total_sec = transcript[-1].start + transcript[-1].duration
     for t in range(0, int(total_sec), chunk_sec):
-        # Find first snippet >= this time
         preview = ''
         for s in transcript:
             if s.start >= t:
@@ -148,16 +218,18 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 格式說明:
-  blog       — 全文逐字稿（部落格格式，預設）
+  blog       — 全文逐字稿（預設；英文自動附 zh-Hant 翻譯）
   raw        — 純文字，無時間戳
   timestamps — 每行附時間戳 [MM:SS]
   summary    — 摘要預覽
   chapters   — 依時間自動分段
 
+語言次序: yue → zh-Hant → zh-Hans → en（en 自動加繁體翻譯）
+
 範例:
   python3 src/download-transcript.py https://youtube.com/watch?v=VIDEO_ID
   python3 src/download-transcript.py VIDEO_ID -f timestamps
-  python3 src/download-transcript.py https://youtu.be/VIDEO_ID -o out/ -l zh,en
+  python3 src/download-transcript.py https://youtu.be/VIDEO_ID -o out/
         """
     )
     parser.add_argument('url', help='YouTube URL 或 video ID')
@@ -165,10 +237,12 @@ def main():
     parser.add_argument('-f', '--format', default='blog',
                         choices=list(FORMATTERS.keys()),
                         help='輸出格式（預設: blog）')
-    parser.add_argument('-l', '--language', default='en,zh-Hans,zh-Hant,yue',
-                        help='語言偏好，逗號分隔（預設: en,zh-Hans,zh-Hant,yue）')
+    parser.add_argument('-l', '--language', default=','.join(LANG_ORDER),
+                        help=f'語言偏好（預設: {",".join(LANG_ORDER)}）')
     parser.add_argument('-t', '--title', default=None,
                         help='自訂標題（預設: 自動從 YouTube 取得）')
+    parser.add_argument('--no-translate', action='store_true',
+                        help='停用英文→繁體中文自動翻譯')
     args = parser.parse_args()
 
     # Extract video ID
@@ -183,13 +257,23 @@ def main():
 
     # Fetch transcript
     api = YouTubeTranscriptApi()
-    try:
-        transcript = api.fetch(video_id, languages=languages)
-    except Exception as e:
-        print(f'❌ 無法取得逐字稿: {e}', file=sys.stderr)
-        print(f'   Video ID: {video_id}', file=sys.stderr)
-        print(f'   嘗試語言: {languages}', file=sys.stderr)
-        sys.exit(1)
+
+    if args.no_translate:
+        try:
+            transcript = api.fetch(video_id, languages=languages)
+        except Exception as e:
+            print(f'❌ 無法取得逐字稿: {e}', file=sys.stderr)
+            sys.exit(1)
+        detected_lang = _detect_language(transcript)
+        translation = None
+    else:
+        try:
+            transcript, detected_lang, translation = fetch_transcript_with_fallback(
+                api, video_id, languages
+            )
+        except Exception as e:
+            print(f'❌ 無法取得逐字稿: {e}', file=sys.stderr)
+            sys.exit(1)
 
     if not transcript:
         print('❌ 逐字稿為空', file=sys.stderr)
@@ -204,7 +288,8 @@ def main():
     # Generate output
     formatter = FORMATTERS[args.format]
     if args.format in ('blog', 'summary'):
-        content = formatter(title, video_id, url, transcript)
+        content = formatter(title, video_id, url, transcript,
+                          detected_lang=detected_lang, translation=translation)
     else:
         content = formatter(transcript)
 
@@ -220,9 +305,12 @@ def main():
 
     # Summary
     duration_min = int(transcript[-1].start + transcript[-1].duration) // 60
+    lang_info = detected_lang
+    if translation:
+        lang_info += '+zh-Hant'
     print(f'✅ 已儲存: {out_path}')
     print(f'   [{args.format}] {len(transcript)} 片段 · ~{duration_min} 分鐘')
-    print(f'   {len(content)} 字元')
+    print(f'   語言: {lang_info} · {len(content)} 字元')
 
 
 if __name__ == '__main__':

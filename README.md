@@ -1,6 +1,14 @@
 # YouTube Transcript Downloader
 
-下載 YouTube 影片逐字稿，輸出多種格式。
+下載 YouTube 影片逐字稿，輸出多種格式。**英語影片自動附繁體中文翻譯。**
+
+## 語言次序
+
+```
+yue（粵語）→ zh-Hant（繁體）→ zh-Hans（簡體）→ en（英文）
+```
+
+抓取 `en` 字幕時，**自動附加 `zh-Hant` 翻譯**（一起放在 transcript 內）。可用 `--no-translate` 停用。
 
 ## 安裝
 
@@ -36,6 +44,9 @@ python3 src/download-transcript.py VIDEO_ID -l zh,en
 
 # 自訂標題
 python3 src/download-transcript.py VIDEO_ID -t "我的標題"
+
+# 停用自動翻譯
+python3 src/download-transcript.py VIDEO_ID --no-translate
 ```
 
 ## 輸出格式
