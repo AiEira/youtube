@@ -165,8 +165,8 @@ def main():
     parser.add_argument('-f', '--format', default='blog',
                         choices=list(FORMATTERS.keys()),
                         help='輸出格式（預設: blog）')
-    parser.add_argument('-l', '--language', default='en,zh-Hans,zh-Hant',
-                        help='語言偏好，逗號分隔（預設: en,zh-Hans,zh-Hant）')
+    parser.add_argument('-l', '--language', default='en,zh-Hans,zh-Hant,yue',
+                        help='語言偏好，逗號分隔（預設: en,zh-Hans,zh-Hant,yue）')
     parser.add_argument('-t', '--title', default=None,
                         help='自訂標題（預設: 自動從 YouTube 取得）')
     args = parser.parse_args()
