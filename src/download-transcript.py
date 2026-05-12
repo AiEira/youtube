@@ -47,8 +47,8 @@ def get_video_title(video_id: str) -> str:
         return video_id
 
 
-def sanitize_filename(text: str, max_len: int = 50) -> str:
-    """Convert title to filename-safe short form."""
+def sanitize_filename(text: str, max_len: int = 20) -> str:
+    """Convert title to filename-safe short form (keep first N chars)."""
     # Remove special chars, keep Chinese/English/digits
     cleaned = re.sub(r'[^\w\u4e00-\u9fff-]', '', text.replace(' ', '-'))
     if len(cleaned) > max_len:
