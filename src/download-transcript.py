@@ -101,7 +101,7 @@ def _detect_language(transcript) -> str:
 
 def format_blog(title: str, video_id: str, url: str, transcript: list,
                 detected_lang: str = 'zh', translation: list = None) -> str:
-    """Format transcript as a blog post. If English + zh-Hant translation, include both."""
+    """Format transcript as markdown. Raw transcript in collapsible section at bottom."""
     lines = [
         f'# {title}',
         '',
@@ -121,28 +121,37 @@ def format_blog(title: str, video_id: str, url: str, transcript: list,
         '',
         '---',
         '',
+        '<!-- BLOG_REWRITE_PLACEHOLDER: LLM will insert rewritten blog here -->',
+        '',
+        '---',
+        '',
+        '## 全文逐字稿',
+        '',
+        '<details>',
+        '<summary>展開逐字稿（共 {} 片段）</summary>'.format(len(transcript)),
+        '',
     ]
 
     if translation:
-        # Dual language: en paragraphs then zh-Hant paragraphs
-        lines.append('## 英文原文')
+        lines.append('### 英文原文')
         lines.append('')
         for s in transcript:
             lines.append(s.text)
             lines.append('')
-        lines.append('---')
-        lines.append('')
-        lines.append('## 繁體中文翻譯')
+        lines.append('### 繁體中文翻譯')
         lines.append('')
         for s in translation:
             lines.append(s.text)
             lines.append('')
     else:
-        lines.append('## 全文逐字稿')
-        lines.append('')
         for s in transcript:
             lines.append(s.text)
             lines.append('')
+
+    lines += [
+        '',
+        '</details>',
+    ]
 
     return '\n'.join(lines)
 
