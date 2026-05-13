@@ -73,8 +73,55 @@ vendors/youtube/
 ├── README.md
 ├── .gitignore
 ├── src/
-│   └── download-transcript.py   ← 主程式
-└── out/                         ← 輸出目錄（git tracked）
+│   ├── download-transcript.py     ← YouTube API 字幕下載
+│   └── whisper_transcribe.py      ← Whisper 語音轉錄（無字幕影片用）
+└── out/                           ← 輸出目錄（git tracked）
+```
+
+---
+
+## Whisper 語音轉錄
+
+當影片**沒有開啟字幕**時，使用 Whisper 直接從音頻轉錄。
+
+### 安裝
+
+```bash
+pip3 install faster-whisper
+```
+
+首次運行會自動下載模型（~3GB for large-v3）。
+
+### 使用
+
+```bash
+cd vendors/youtube/
+
+# 1. 下載音頻
+yt-dlp -f "bestaudio[ext=m4a]" -o "/tmp/VIDEO_ID.m4a" "https://youtu.be/VIDEO_ID"
+
+# 2. 轉錄（large-v3, 普通話）
+python3 src/whisper_transcribe.py /tmp/VIDEO_ID.m4a
+
+# 輸出: /tmp/VIDEO_ID.txt（附時間戳）
+```
+
+### 參數
+
+```bash
+python3 src/whisper_transcribe.py <audio_file> [--language LANG] [--model MODEL]
+```
+
+| 參數 | 預設 | 說明 |
+|------|------|------|
+| `audio_file` | (required) | 音頻檔案路徑 |
+| `--language` | `zh` | 語言代碼（`zh`, `yue`, `en`, `ja` 等） |
+| `--model` | `large-v3` | 模型大小（`tiny`, `base`, `small`, `medium`, `large-v3`） |
+
+### 工作流程
+
+```
+yt-dlp 下載音頻 → Whisper 轉錄 → /tmp/VIDEO_ID.txt（附時間戳）
 ```
 
 ## 支援的 URL 格式
