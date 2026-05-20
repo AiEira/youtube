@@ -16,10 +16,11 @@ metadata:
 git clone https://github.com/AiEira/youtube.git ./youtube
 cd ./youtube
 pip3 install youtube-transcript-api
+pip3 install mlx-whisper  # macOS Apple Silicon GPU 加速（必需）
 gh auth login  # 需要 GitHub CLI 認證以建立 Gist
 ```
 
-確認 python3 ≥ 3.9，`gh` CLI 已安裝。
+確認 python3 ≥ 3.9，`gh` CLI 已安裝。**macOS 預設用 mlx-whisper，不安裝 faster-whisper。**
 
 ## 使用
 
@@ -46,6 +47,26 @@ Use `terminal(background=True, notify_on_complete=True, timeout=120)`。
 常見需要 retry 嘅 code：`yue-HK`、`zh-TW`、`zh-CN`。
 
 **Filename convention**：`{videoId}-{短標題}.md`
+
+### Step 1b: Whisper 轉錄（字幕被關閉時）
+
+當 YouTube API 報 "Subtitles are disabled" 時：
+
+```bash
+# 1. 下載音頻
+yt-dlp -f "bestaudio[ext=m4a]" -o "/tmp/{video_id}.m4a" "https://youtu.be/{video_id}"
+
+# 2. mlx_whisper 轉錄（macOS Apple Silicon GPU，快）
+~/.hermes/hermes-agent/venv/bin/mlx_whisper /tmp/{video_id}.m4a \
+  --language zh --model mlx-community/whisper-large-v3-mlx \
+  --output-dir /tmp/ --output-format txt
+
+# 3. 將 /tmp/{video_id}.txt 整理成 blog 格式 → out/{video_id}-{短標題}.md
+```
+
+Use `terminal(background=True, notify_on_complete=True, timeout=300)`。
+
+**語言判斷**：先用 oembed 取標題判斷語言，`zh`（普通話）/ `yue`（粵語）/ `en`（英文）。
 
 ### Step 2: Rewrite transcript into blog
 
@@ -109,7 +130,11 @@ Git identity: set with `git config user.name` and `git config user.email` before
 - Use Python ≥ 3.9
 - If using Hermes, prefer Hermes venv python (`~/.hermes/hermes-agent/venv/bin/python3`)
 
-### Whisper Transcription (when subtitles disabled)
-- On macOS Apple Silicon: use mlx-whisper for GPU acceleration
-- On CPU: large-v3 model takes ~4-5× real-time (14 min video = ~1 hour)
+### Whisper 轉錄（字幕被關閉時）
+
+- **macOS default：`mlx_whisper`（Apple Silicon GPU）** — 9 分鐘音頻約 2-3 分鐘轉錄完成
+- **不要用 `faster_whisper`（CPU）** — large-v3 在 CPU 上極慢（4-5× real-time），完全不實際
+- 模型：`mlx-community/whisper-large-v3-mlx`（已 cache 在 `~/.cache/huggingface/hub/`）
+- 語言判斷：先用 `oembed` API 取標題，有中文用 `--language zh`，粵語用 `--language yue`
 - NEVER run two Whisper processes simultaneously
+- 轉錄完成後的 raw txt 需要整理為 blog 格式（加 metadata + collapsible）
