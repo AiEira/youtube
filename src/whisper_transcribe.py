@@ -1,24 +1,44 @@
 #!/usr/bin/env python3
-"""Whisper audio transcription using faster-whisper.
+"""
+Whisper 轉錄 — macOS Apple Silicon GPU (mlx_whisper)
 
 Usage:
-    python3 whisper_transcribe.py <audio_file> [--language LANG] [--model MODEL]
+    python3 whisper_transcribe.py <audio_file> [--language LANG] [--output-dir DIR]
 
 Examples:
-    python3 whisper_transcribe.py /tmp/EOvkZPjJUJw.m4a
-    python3 whisper_transcribe.py audio.mp3 --language yue --model medium
-    python3 whisper_transcribe.py podcast.wav --language en --model large-v3
+    python3 whisper_transcribe.py /tmp/6fr8Zzmwi5k.m4a
+    python3 whisper_transcribe.py audio.m4a --language en --output-dir out/transcripts/
+
+Output:
+    {output_dir}/{basename}.json — full mlx_whisper output (text, segments, language)
+
+Dependencies:
+    mlx_whisper (installed in Hermes venv — Apple Silicon only)
 """
 
-from faster_whisper import WhisperModel
-import argparse, time, sys, os
+import argparse
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+
+MLX_WHISPER_BIN = os.path.expanduser(
+    "~/.hermes/hermes-agent/venv/bin/mlx_whisper"
+)
+DEFAULT_MODEL = "mlx-community/whisper-large-v3-mlx"
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Whisper audio transcription")
+    parser = argparse.ArgumentParser(description="mlx_whisper transcription")
     parser.add_argument("audio_file", help="Path to audio file (m4a, mp3, wav, etc.)")
-    parser.add_argument("--language", default="zh", help="Language code (default: zh)")
-    parser.add_argument("--model", default="large-v3", help="Model size (default: large-v3)")
+    parser.add_argument("--language", default=None,
+                        help="Language code (auto-detect if omitted)")
+    parser.add_argument("--model", default=DEFAULT_MODEL,
+                        help=f"Model name (default: {DEFAULT_MODEL})")
+    parser.add_argument("--output-dir", default=None,
+                        help="Output directory (default: same as audio file)")
     args = parser.parse_args()
 
     audio_path = args.audio_file
@@ -26,26 +46,67 @@ def main():
         print(f"❌ File not found: {audio_path}", file=sys.stderr)
         sys.exit(1)
 
-    out_path = os.path.splitext(audio_path)[0] + ".txt"
+    if not os.path.exists(MLX_WHISPER_BIN):
+        print(f"❌ mlx_whisper not found at {MLX_WHISPER_BIN}", file=sys.stderr)
+        print("   Install: pip install mlx-whisper", file=sys.stderr)
+        sys.exit(1)
+
+    # Determine output path
+    audio_stem = Path(audio_path).stem
+    output_dir = args.output_dir or str(Path(audio_path).parent)
+    os.makedirs(output_dir, exist_ok=True)
+    out_json = os.path.join(output_dir, f"{audio_stem}.json")
+
+    # Build command
+    cmd = [
+        MLX_WHISPER_BIN,
+        audio_path,
+        "--model", args.model,
+        "--output-dir", output_dir,
+        "--output-format", "json",
+    ]
+    if args.language:
+        cmd += ["--language", args.language]
+
+    print(f"Transcribing: {audio_path}", flush=True)
+    print(f"  Model:   {args.model}", flush=True)
+    print(f"  Language: {args.language or 'auto-detect'}", flush=True)
+    print(f"  Output:  {out_json}", flush=True)
 
     t0 = time.time()
-    print(f"Loading {args.model} model...", flush=True)
-    model = WhisperModel(args.model, device="cpu", compute_type="int8")
-    print(f"Model loaded in {time.time()-t0:.0f}s", flush=True)
+    result = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        timeout=7200,  # 2 hour max
+    )
 
-    t1 = time.time()
-    print(f"Transcribing: {audio_path} (language={args.language})...", flush=True)
-    segments, info = model.transcribe(audio_path, language=args.language, beam_size=5)
-    print(f"Detected: {info.language} (prob={info.language_probability:.2f})", flush=True)
+    elapsed = time.time() - t0
 
-    with open(out_path, "w") as f:
-        for seg in segments:
-            line = f"[{int(seg.start//60)}:{seg.start%60:04.1f}] {seg.text}\n"
-            f.write(line)
-            print(line, end="", flush=True)
+    if result.returncode != 0:
+        print(f"❌ mlx_whisper failed (exit {result.returncode})", file=sys.stderr)
+        if result.stderr:
+            print(result.stderr[:2000], file=sys.stderr)
+        sys.exit(1)
 
-    elapsed = time.time() - t1
-    print(f"\nDone in {elapsed:.0f}s → {out_path}", flush=True)
+    # mlx_whisper puts some info on stderr; show last few lines for timing
+    stderr_lines = result.stderr.strip().split("\n")
+    for line in stderr_lines[-5:]:
+        print(f"  [mlx] {line}", flush=True)
+
+    print(f"\n✅ Done in {elapsed:.0f}s ({elapsed/60:.1f}m) → {out_json}", flush=True)
+
+    # Quick stats
+    import json
+    with open(out_json) as f:
+        data = json.load(f)
+    n_segs = len(data.get("segments", []))
+    duration_min = data["segments"][-1]["end"] / 60 if n_segs else 0
+    lang = data.get("language", "unknown")
+    speedup = elapsed / max(duration_min * 60, 1)
+
+    print(f"  Segments: {n_segs}  Duration: {duration_min:.0f} min  "
+          f"Lang: {lang}  Speed: {speedup:.1f}x realtime", flush=True)
 
 
 if __name__ == "__main__":
