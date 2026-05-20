@@ -15,8 +15,8 @@ metadata:
 ```bash
 git clone https://github.com/AiEira/youtube.git ./youtube
 cd ./youtube
-pip3 install youtube-transcript-api
-pip3 install mlx-whisper  # macOS Apple Silicon GPU 加速（必需）
+~/.hermes/hermes-agent/venv/bin/pip install youtube-transcript-api
+~/.hermes/hermes-agent/venv/bin/pip install mlx-whisper  # macOS Apple Silicon GPU 加速（必需）
 gh auth login  # 需要 GitHub CLI 認證以建立 Gist
 ```
 
@@ -36,7 +36,7 @@ gh auth login  # 需要 GitHub CLI 認證以建立 Gist
 ### Step 1: Download transcript
 
 ```bash
-cd ./youtube && python3 src/download-transcript.py "{url}" -f blog -o out/
+cd ./youtube && ~/.hermes/hermes-agent/venv/bin/python3 src/download-transcript.py "{url}" -f blog -o out/
 ```
 
 Use `terminal(background=True, notify_on_complete=True, timeout=120)`。
@@ -154,9 +154,10 @@ Git identity: set with `git config user.name` and `git config user.email` before
 - If transcript unavailable, video may have subtitles disabled
 - Some videos use non-standard language codes: `yue-HK`, `zh-TW`, `zh-CN`
 
-### Python Version
-- Use Python ≥ 3.9
-- If using Hermes, prefer Hermes venv python (`~/.hermes/hermes-agent/venv/bin/python3`)
+### Python 版本
+
+- **所有 python 命令必須用 Hermes venv**：`~/.hermes/hermes-agent/venv/bin/python3`
+- 系統 `python3` 係 macOS Xcode Python 3.9，缺 mlx_whisper 等套件 → 勿用
 
 ### Whisper 轉錄（字幕被關閉時）
 
