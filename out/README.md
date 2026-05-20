@@ -21,7 +21,7 @@
 | `_kwhTWYPy44` | 華為鴻蒙開源爭議：OpenHarmony.Avalonia 存檔風波 | [gist](https://gist.github.com/eiraho/9baa79e6a7d903f1722108c86e4afff0) |
 | `FFX0sng67RI` | 啟發式學習（HL）：AI 不訓練網絡，只改代碼 | — |
 | `KsnXvqSbDLU` | Google I/O 2026 + Android 17 精華總結 | [gist](https://gist.github.com/eiraho/a0c8eb9440218d7086c6919b85afb7b6) |
-| `KLL8YtU71Xo` | 心累、焦慮、胡思亂想？老祖宗有個笨辦法：觀 小止觀書第六章 | [gist](https://gist.github.com/eiraho/996f478a0d2a9c742f1e4394c0d10949) |
+| `KLL8YtU71Xo` | 心累、焦慮、胡思亂想？老祖宗有個笨辦法：觀 小止觀書第六章 | [gist](https://gist.github.com/eiraho/86c2b6a24820de64c09a50ef323ba886) |
 | `DyAKn1-82fQ` | 别把学习外包给AI！AI编程需要保留"有益的摩擦" | [gist](https://gist.github.com/eiraho/0fd9a897d9a1eb83eae57ceeea35f3f8) |
 
 ## 流程
