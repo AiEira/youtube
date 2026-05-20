@@ -92,6 +92,27 @@ gh gist create --public --desc "{short_title}" "{filename}.md"
 
 Record the gist URL.
 
+#### 更新已存在的 Gist（Blog rewrite 後）
+
+**⚠️ 勿用 `gh gist edit`——非互動模式唔 work。** 用 API：
+
+```bash
+cd ./youtube
+gh api -X PATCH "gists/{gist_id}" --input - <<'EOF'
+{
+  "files": {
+    "{filename}": {
+      "content": "FULL_CONTENT_HERE"
+    }
+  }
+}
+EOF
+```
+
+**實戰 script**：讀本地 file → JSON-escape → PATCH。參考 `.hermes/scripts/update_gist.py`（如有）。
+
+關鍵：Gist 多咗 orphan files 時，set 多餘 file 嘅 content 為 `null` 即可刪除。
+
 ### Step 4: Update out/README.md
 
 Add row to the mirror table in `out/README.md`：
@@ -119,6 +140,13 @@ Git identity: set with `git config user.name` and `git config user.email` before
 `https://github.com/AiEira/youtube` (public)
 
 ## Pitfalls
+
+### Gist 操作
+
+- **`gh gist edit` 在非互動模式（cron / agent）唔 work**——佢會嘗試開 editor
+- **正確更新 Gist**：用 `gh api -X PATCH gists/{id}` + JSON payload
+- Blog rewrite 完成後必須 update Gist，唔好留低 `<!-- BLOG_REWRITE_PLACEHOLDER -->`
+- 多餘 orphan files：在 PATCH payload 中 set 該 file 為 `null` 即可刪除
 
 ### YouTube API
 - Transcript API can take 10-30 seconds → always use background mode
