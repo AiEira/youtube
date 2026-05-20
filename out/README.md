@@ -21,14 +21,19 @@
 | `_kwhTWYPy44` | 華為鴻蒙開源爭議：OpenHarmony.Avalonia 存檔風波 | [gist](https://gist.github.com/eiraho/9baa79e6a7d903f1722108c86e4afff0) |
 | `FFX0sng67RI` | 啟發式學習（HL）：AI 不訓練網絡，只改代碼 | — |
 | `KsnXvqSbDLU` | Google I/O 2026 + Android 17 精華總結 | [gist](https://gist.github.com/eiraho/a0c8eb9440218d7086c6919b85afb7b6) |
-| `KLL8YtU71Xo` | 心累、焦慮、胡思亂想？老祖宗有個笨辦法：觀 小止觀書第六章 | [gist](https://gist.github.com/eiraho/86c2b6a24820de64c09a50ef323ba886) |
+| `KLL8YtU71Xo` | 心累、焦慮、胡思亂想？老祖宗有個笨辦法：觀 小止觀書第六章 | [gist](https://gist.github.com/eiraho/62a3a3b50213f0d47cb82e02b695d24b) |
 | `DyAKn1-82fQ` | 别把学习外包给AI！AI编程需要保留"有益的摩擦" | [gist](https://gist.github.com/eiraho/0fd9a897d9a1eb83eae57ceeea35f3f8) |
 
 ## 流程
 
-以後每次下載新字幕：
+以後每次處理新影片：
 
-1. 原檔 → `out/{videoId}-{標題}.md`（私有）
-2. `gh gist create --public --desc "{標題}" "out/{檔名}"` → 公開鏡像
-3. 將 gist URL 加入上表
-4. `git commit -m "mirror: {videoId} gist link" && git push`
+1. 原檔 → `out/{videoId}-{標題}.md`（blog rewrite）
+2. **品質閘門**：讀尾 30 行，檢查無重複幻覺、無 line number 污染、章節 ≥ 5
+3. 通過 → delete old gist（如有）+ `gh gist create`（overwrite，永不 patch）
+4. 驗證：`curl` gist raw URL，確認內容與 local 一致
+5. 將 gist URL 更新上表
+6. `git commit -m "mirror: {videoId} gist link" && git push`
+
+> ⚠️ 品質閘門未通過 → 不上 gist。回修直到通過。
+> 詳見 studies/2026-05-20-YouTube管線品質審查.md
