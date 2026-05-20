@@ -13,8 +13,8 @@ metadata:
 ## Setup（一次性）
 
 ```bash
-git clone https://github.com/AiEira/youtube.git ~/youtube-transcript
-cd ~/youtube-transcript
+git clone https://github.com/AiEira/youtube.git ./youtube
+cd ./youtube
 pip3 install youtube-transcript-api
 gh auth login  # 需要 GitHub CLI 認證以建立 Gist
 ```
@@ -35,7 +35,7 @@ gh auth login  # 需要 GitHub CLI 認證以建立 Gist
 ### Step 1: Download transcript
 
 ```bash
-cd ~/youtube-transcript && python3 src/download-transcript.py "{url}" -f blog -o out/
+cd ./youtube && python3 src/download-transcript.py "{url}" -f blog -o out/
 ```
 
 Use `terminal(background=True, notify_on_complete=True, timeout=120)`。
@@ -65,7 +65,7 @@ Whisper transcription 經常錯專有名詞。必須核對：
 ### Step 3: Create public Gist mirror
 
 ```bash
-cd ~/youtube-transcript/out
+cd ./youtube/out
 gh gist create --public --desc "{short_title}" "{filename}.md"
 ```
 
@@ -81,7 +81,7 @@ Add row to the mirror table in `out/README.md`：
 ### Step 5: Git push
 
 ```bash
-cd ~/youtube-transcript && git add out/ && git commit -m "transcript: {video_id} - {short_title}" && git push origin master
+cd ./youtube && git add out/ && git commit -m "transcript: {video_id} - {short_title}" && git push origin master
 ```
 
 Git identity: set with `git config user.name` and `git config user.email` before first use.
