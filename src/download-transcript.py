@@ -117,7 +117,7 @@ def format_blog(title: str, video_id: str, url: str, transcript: list,
         lines.append(f'> 語言：粵語／中文')
 
     lines += [
-        f'> 整理：小初（Eira）',
+        f'> 整理：AiEira',
         '',
         '---',
         '',

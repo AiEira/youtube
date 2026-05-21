@@ -2,7 +2,7 @@
 name: youtube-transcript-download
 description: Download YouTube video transcripts, rewrite as blog, mirror as public Gist, and push to GitHub. Self-contained — clone the repo and run.
 version: 2.1.0
-author: Eira (小初) for horace
+author: AiEira
 metadata:
   hermes:
     tags: [youtube, transcript, download, blog, gist]
@@ -92,7 +92,7 @@ Script 輸出嘅 file 有 `<!-- BLOG_REWRITE_PLACEHOLDER -->`。Replace 佢做 b
 1. **Whisper 路徑**：讀取 `_clean.json`（不是 raw JSON），從 clean segments 寫 blog
 2. 組織做章節，段落式書寫
 3. Keep the original meaning
-4. 加入「小初嘅讀後感」（如果係小初寫）
+4. 加入編者備註（可選）
 
 ### Step 2b: 核對專有名詞
 
