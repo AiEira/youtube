@@ -7,6 +7,7 @@
 
 | 影片 ID | 標題 | Gist |
 |---------|------|------|
+| `z8t6WOY8lc4` | 數學正式進入證明過剩時代——陶哲軒 | [gist](https://gist.github.com/eiraho/c81809e56efe5820d7e56ccc0b02e2da) |
 | `h_rv2Qs_REk` | 五角大樓 UFO 檔案：阿波羅月球接觸 | [gist](https://gist.github.com/eiraho/de68d4e76d769a7e0ec11ae5ff879637) |
 | `KAqgH3B9YCQ` | 對未來覺得恐懼？拆解《天能》最神結局（斯多葛哲學）| [gist](https://gist.github.com/eiraho/7e44fb663db667dfbd32268014ad02d5) |
 | `0BacrKhaRJI` | AI Agent 四大類頂級 Skill 配置指南 | [gist](https://gist.github.com/eiraho/ef5a48f28c26ad3a9673d61e91fbfbad) |
