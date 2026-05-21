@@ -25,6 +25,7 @@
 | `DyAKn1-82fQ` | 别把学习外包给AI！AI编程需要保留"有益的摩擦" | [gist](https://gist.github.com/eiraho/0fd9a897d9a1eb83eae57ceeea35f3f8) |
 | `ENroKRTjarU` | 比爾密碼：跨越140年的共濟會2032預言？ | [gist](https://gist.github.com/eiraho/44add39f35f9816ad204c39df178d740) |
 | `6fr8Zzmwi5k` | AI 真有意識嗎？Amanda Askell 談 Claude 的靈魂與道德 | [gist](https://gist.github.com/eiraho/5c85f41aaf2d903ac169c0ef431c0fd9) |
+| `sRvUXLquiRg` | Claude Code 最新功能全覽：開發者體驗 × 自主代理 × Agent View | [gist](https://gist.github.com/eiraho/50f449ade32a5f45f244d5a673f3119a) |
 
 ## 流程
 

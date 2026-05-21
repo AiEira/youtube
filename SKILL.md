@@ -54,7 +54,7 @@ Use `terminal(background=True, notify_on_complete=True, timeout=120)`。
 
 ```bash
 # 1. 下載音頻
-yt-dlp -f "bestaudio[ext=m4a]" -o "/tmp/{video_id}.m4a" "https://youtu.be/{video_id}"
+yt-dlp --no-progress -f "bestaudio[ext=m4a]" -o "/tmp/{video_id}.m4a" "https://youtu.be/{video_id}"
 
 # 2. mlx_whisper 轉錄（macOS Apple Silicon GPU，快）
 cd ./youtube && ~/.hermes/hermes-agent/venv/bin/python3 src/whisper_transcribe.py \

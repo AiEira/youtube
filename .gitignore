@@ -1,4 +1,8 @@
-__pycache__/
-*.pyc
-.DS_Store
-out/
+# Audio files (too large for git)
+*.m4a
+*.mp3
+*.wav
+
+# Raw transcripts (tracked by git, keep)
+# out/*.md — blog rewrites stay in git
+# out/transcripts/*.json — whisper output stays
