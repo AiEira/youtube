@@ -29,6 +29,7 @@
 | `EOvkZPjJUJw` | 臥虎藏龍 — 顛覆性影評（raw transcript only） | — |
 | `ENroKRTjarU` | 比爾密碼：跨越140年的共濟會2032預言？ | [gist](https://gist.github.com/eiraho/44add39f35f9816ad204c39df178d740) |
 | `6fr8Zzmwi5k` | AI 真有意識嗎？Amanda Askell 談 Claude 的靈魂與道德 | [gist](https://gist.github.com/eiraho/5c85f41aaf2d903ac169c0ef431c0fd9) |
+| `lJBVeoHsg10` | 中國的 AI 世界觀：求是雜誌 2026 戰略全解析 — 兔主席 | [gist](https://gist.github.com/eiraho/55dafebfb1f2c0e4728e6b7e5568fc0e) |
 | `sIENjZ8ShI8` | 下一代 Claude 該如何打造？Alex Albert 拆解 Anthropic 全流程產研邏輯 | [gist](https://gist.github.com/eiraho/6329f73f7672f81f3ba07684ba7d71db) |
 | `sRvUXLquiRg` | Claude Code 最新功能全覽：開發者體驗 × 自主代理 × Agent View | [gist](https://gist.github.com/eiraho/50f449ade32a5f45f244d5a673f3119a) |
 | `FhPQhIXYc-M` | AI 搞不定百萬行祖傳代碼？Claude Code 五層企業級架構 | [gist](https://gist.github.com/eiraho/79291dd718e73cb9eb968e289c4f866a) |
