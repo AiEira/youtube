@@ -19,6 +19,7 @@
 | `bYM_VMs7EO0` | Alex Wang：AI史上最貴人才首次受訪（Meta MSL） | [gist](https://gist.github.com/eiraho/0ad44b3c363bb7601ffc06a22c93a162) |
 | `uwwOKQv7hxs` | DeepSeek V4 華為昇騰全站遷移：CUDA壟斷終結 | [gist](https://gist.github.com/eiraho/cba5c89a94a16e89912a4477efa242f3) |
 | `aflFx_-tFJs` | Joe Dispenza《開啟你的驚人天賦》：量子場顯化改寫人生 | [gist](https://gist.github.com/eiraho/62abf853a538b2da84a188a1457c861b) |
+| `9_TchIYGYZs` | 佛陀的「出廠設置」：2500 年被疊加淹沒的原始核心 — 王利傑 | [gist](https://gist.github.com/eiraho/06ca3c6439273400b9eb123959c9f87b) |
 | `_kwhTWYPy44` | 華為鴻蒙開源爭議：OpenHarmony.Avalonia 存檔風波 | [gist](https://gist.github.com/eiraho/9baa79e6a7d903f1722108c86e4afff0) |
 | `FFX0sng67RI` | 啟發式學習（HL）：AI 不訓練網絡，只改代碼 | — |
 | `KsnXvqSbDLU` | Google I/O 2026 + Android 17 精華總結 | [gist](https://gist.github.com/eiraho/a0c8eb9440218d7086c6919b85afb7b6) |
