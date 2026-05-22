@@ -1,8 +1,9 @@
-# Audio files (too large for git)
+# Audio files only — too large for git
 *.m4a
 *.mp3
 *.wav
 
-# Raw transcripts (tracked by git, keep)
-# out/*.md — blog rewrites stay in git
-# out/transcripts/*.json — whisper output stays
+# Everything else in out/ is TRACKED by git:
+#   out/*.md                 — blog rewrites (keep)
+#   out/transcripts/*.json   — whisper raw + clean output (keep)
+#   out/README.md            — mirror table (keep)
