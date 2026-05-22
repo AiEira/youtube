@@ -19,8 +19,8 @@ from pathlib import Path
 from youtube_transcript_api import YouTubeTranscriptApi
 
 
-# Language priority: yue → zh-Hant → zh → zh-Hans → en
-LANG_ORDER = ['yue', 'zh-Hant', 'zh', 'zh-Hans', 'en']
+# Language priority: yue → yue-HK → zh-Hant → zh-TW → zh → zh-Hans → zh-CN → en
+LANG_ORDER = ['yue', 'yue-HK', 'zh-Hant', 'zh-TW', 'zh', 'zh-Hans', 'zh-CN', 'en']
 ZH_HANT = 'zh-Hant'
 
 
@@ -233,7 +233,7 @@ def main():
   summary    — 摘要預覽
   chapters   — 依時間自動分段
 
-語言次序: yue → zh-Hant → zh → zh-Hans → en（en 自動加繁體翻譯）
+語言次序: yue → yue-HK → zh-Hant → zh-TW → zh → zh-Hans → zh-CN → en（en 自動加繁體翻譯）
 
 範例:
   python3 src/download-transcript.py https://youtube.com/watch?v=VIDEO_ID

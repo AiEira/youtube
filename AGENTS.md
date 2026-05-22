@@ -76,10 +76,9 @@ cd ./youtube
 ~/.hermes/hermes-agent/venv/bin/python3 src/download-transcript.py "{url}" -f blog -o out/
 ```
 
-語言自動選擇：`yue` → `zh-Hant` → `zh` → `zh-Hans` → `zh-CN` → `en`
+語言自動選擇：`yue` → `yue-HK` → `zh-Hant` → `zh-TW` → `zh` → `zh-Hans` → `zh-CN` → `en`
 
-如果報錯，睇 error 入面 `available languages`，用 `-l <code>` retry。
-常見需要 retry code：`yue-HK`、`zh-TW`、`zh-CN`。
+如果報錯，睇 error 入面 `available languages`，用 `-l <code>` retry（default chain 已涵蓋 yue-HK、zh-TW、zh-CN，但個別影片可能有其他變體）。
 
 ### YouTube API 失敗 → Whisper
 

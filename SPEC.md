@@ -89,7 +89,7 @@ YouTube 提供兩種字幕來源：
 download-transcript.py → blog.md
 ```
 
-**語言優先序**：`yue` → `zh-Hant` → `zh` → `zh-Hans` → `zh-CN` → `en`
+**語言優先序**：`yue` → `yue-HK` → `zh-Hant` → `zh-TW` → `zh` → `zh-Hans` → `zh-CN` → `en`
 
 **設計決策**：
 - 英文影片自動附加繁體中文翻譯（`translate('zh-Hant')`）

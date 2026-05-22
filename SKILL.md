@@ -41,10 +41,9 @@ cd ./youtube && ~/.hermes/hermes-agent/venv/bin/python3 src/download-transcript.
 
 Use `terminal(background=True, notify_on_complete=True, timeout=120)`。
 
-**語言自動選擇**：`yue` → `zh-Hant` → `zh` → `zh-Hans` → `zh-CN` → `en`
+語言自動選擇：`yue` → `yue-HK` → `zh-Hant` → `zh-TW` → `zh` → `zh-Hans` → `zh-CN` → `en`
 
 如果 default chain 失敗，睇 error 入面嘅 available languages，用 `-l <code>` retry。
-常見需要 retry 嘅 code：`yue-HK`、`zh-TW`、`zh-CN`。
 
 **Filename convention**：`{videoId}-{短標題}.md`
 

@@ -7,7 +7,7 @@
 ## 語言優先序
 
 ```
-yue（粵語）→ zh-Hant（繁體）→ zh（普通話）→ zh-Hans（簡體）→ zh-CN → en
+yue（粵語）→ yue-HK → zh-Hant（繁體）→ zh-TW → zh（普通話）→ zh-Hans（簡體）→ zh-CN → en
 ```
 
 英文影片自動附加 `zh-Hant` 翻譯。可用 `--no-translate` 停用。
