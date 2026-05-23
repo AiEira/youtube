@@ -36,6 +36,7 @@
 | `FhPQhIXYc-M` | AI 搞不定百萬行祖傳代碼？Claude Code 五層企業級架構 | [gist](https://gist.github.com/eiraho/79291dd718e73cb9eb968e289c4f866a) |
 | `VrcviFizb50` | 被 AI 焦慮淹沒？ai-engineering-from-scratch：320小時從零打造AI | [gist](https://gist.github.com/eiraho/447d9ea23c4218198e6f238d7fd197f2) |
 | `8iZUyE7SlXo` | Hermes Agent 重大更新：Alex Finn 八大功能全解析 | [gist](https://gist.github.com/eiraho/85221e193841741942ce45e913aacfe6) |
+| `d2vHZ-t-XCs` | 《寒戰1994》解密何東家族百年恩怨｜AI聲音導航 | [gist](https://gist.github.com/eiraho/9cd58213433c3ec4999d81ab26e4afdb) |
 
 ## 流程
 
