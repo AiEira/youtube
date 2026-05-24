@@ -40,6 +40,7 @@
 | `T1P6_AUiEu4` | 諾獎發現人體經絡：《黃帝內經》隱藏的人體密碼 | [gist](https://gist.github.com/eiraho/c893b8a80b630457041e1362d60e7188) |
 | `GLWIb8vAs8s` | 世界劇本：庫柏、科爾曼與三百人委員會 | [gist](https://gist.github.com/eiraho/a3cfdfe041dc0d1eb52363fa5a8df463) |
 | `w7du8qJq_NM` | 死藤水、薩滿與外星爬蟲族 — Michael Harner《薩滿之道》 | [gist](https://gist.github.com/eiraho/41669f56c6754f58ca80b5f64cb3dfc2) |
+| `geUv4CjPpxI` | Agents that remember — Anthropic 記憶與Dreaming系統 | [gist](https://gist.github.com/eiraho/37d018a3f7addb06095f5ca20e33bc13) |
 
 ## 流程
 
