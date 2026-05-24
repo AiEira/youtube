@@ -38,6 +38,7 @@
 | `8iZUyE7SlXo` | Hermes Agent 重大更新：Alex Finn 八大功能全解析 | [gist](https://gist.github.com/eiraho/85221e193841741942ce45e913aacfe6) |
 | `d2vHZ-t-XCs` | 《寒戰1994》解密何東家族百年恩怨｜AI聲音導航 | [gist](https://gist.github.com/eiraho/9cd58213433c3ec4999d81ab26e4afdb) |
 | `T1P6_AUiEu4` | 諾獎發現人體經絡：《黃帝內經》隱藏的人體密碼 | [gist](https://gist.github.com/eiraho/c893b8a80b630457041e1362d60e7188) |
+| `GLWIb8vAs8s` | 世界劇本：庫柏、科爾曼與三百人委員會 | [gist](https://gist.github.com/eiraho/a3cfdfe041dc0d1eb52363fa5a8df463) |
 
 ## 流程
 
