@@ -43,6 +43,7 @@
 | `geUv4CjPpxI` | Agents that remember — Anthropic 記憶與Dreaming系統 | [gist](https://gist.github.com/eiraho/37d018a3f7addb06095f5ca20e33bc13) |
 | `ozVTJm3n2U4` | Claude Code /ultrawork — Workflow 多Agent工作流 | [gist](https://gist.github.com/eiraho/ca35b37e4f8c41d3ae3ae1c80bcf254d) |
 | `J--95YNiDj8` | 五角大樓UFO機密釋放：科學家失蹤、115號元素、阿波羅 | [gist](https://gist.github.com/eiraho/3cc890a4329422c48206302af6d026cc) |
+| `wnG4f9xtIXM` | DeepSeek 的真正野心：重寫 AI 推理的底層邏輯 | [gist](https://gist.github.com/eiraho/15c412fb3baf1742142e242b1ba23426) |
 
 ## 流程
 
