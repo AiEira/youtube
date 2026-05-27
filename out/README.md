@@ -45,6 +45,7 @@
 | `J--95YNiDj8` | 五角大樓UFO機密釋放：科學家失蹤、115號元素、阿波羅 | [gist](https://gist.github.com/eiraho/3cc890a4329422c48206302af6d026cc) |
 | `wnG4f9xtIXM` | DeepSeek 的真正野心：重寫 AI 推理的底層邏輯 | [gist](https://gist.github.com/eiraho/15c412fb3baf1742142e242b1ba23426) |
 | `X_ZVSPcZhtw` | Eric Jang：從零重建 AlphaGo — Self-Play、RL、MCTS 與 LLM | [gist](https://gist.github.com/eiraho/5c5ab02b825a59647e2e7c736235cb6b) |
+| `H93_BXi19SQ` | Usagi v1.0 + 遊戲引擎對比：Usagi vs Godot vs Bevy | [gist](https://gist.github.com/eiraho/33daf52b5336455bfe75b4c1f8ff7a92) |
 
 ## 流程
 
