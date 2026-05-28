@@ -46,6 +46,7 @@
 | `wnG4f9xtIXM` | DeepSeek 的真正野心：重寫 AI 推理的底層邏輯 | [gist](https://gist.github.com/eiraho/15c412fb3baf1742142e242b1ba23426) |
 | `X_ZVSPcZhtw` | Eric Jang：從零重建 AlphaGo — Self-Play、RL、MCTS 與 LLM | [gist](https://gist.github.com/eiraho/5c5ab02b825a59647e2e7c736235cb6b) |
 | `H93_BXi19SQ` | Usagi v1.0 + 遊戲引擎對比：Usagi vs Godot vs Bevy | [gist](https://gist.github.com/eiraho/33daf52b5336455bfe75b4c1f8ff7a92) |
+| `tm2tWEclT6w` | MoneyPrinterTurbo：六萬星 GitHub 專案一鍵產 AI 短片 | [gist](https://gist.github.com/eiraho/b88cf0c9c1a079dfc424f35a592d785b) |
 
 ## 流程
 
