@@ -47,6 +47,7 @@
 | `X_ZVSPcZhtw` | Eric Jang：從零重建 AlphaGo — Self-Play、RL、MCTS 與 LLM | [gist](https://gist.github.com/eiraho/5c5ab02b825a59647e2e7c736235cb6b) |
 | `H93_BXi19SQ` | Usagi v1.0 + 遊戲引擎對比：Usagi vs Godot vs Bevy | [gist](https://gist.github.com/eiraho/33daf52b5336455bfe75b4c1f8ff7a92) |
 | `tm2tWEclT6w` | MoneyPrinterTurbo：六萬星 GitHub 專案一鍵產 AI 短片 | [gist](https://gist.github.com/eiraho/b88cf0c9c1a079dfc424f35a592d785b) |
+| `SaEREWFRZNE` | 《墨海遊吟》新書發佈會 — 書法大師 45 年學生編纂 | [gist](https://gist.github.com/eiraho/ae8f3de96a4ac0aede71c209670b69e5) |
 
 ## 流程
 
