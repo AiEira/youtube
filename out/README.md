@@ -7,6 +7,7 @@
 
 | 影片 ID | 標題 | Gist |
 |---------|------|------|
+| `mhNrEgYgJd8` | 秒變懂畫帝：世界名畫色彩搭配——對比色的運用 | [gist](https://gist.github.com/eiraho/8400d6f84b99e7a701760473ce00b342) |
 | `7RsBEfAzk9U` | MiniMax M3 實測：1M 上下文 + Agent + 多模態 | [gist](https://gist.github.com/eiraho/7d63195fcab4c344f2af82c4b26965df) |
 | `JPg4loux2hY` | OpenAI 與 Anthropic 為何在同一天收回 AI 末日論？ | [gist](https://gist.github.com/eiraho/d957b008bce4a2b982812687e4a741bc) |
 | `BFH9D05UFvM` | Unsloth Studio 實測：本地端微調任何 AI 模型 | [gist](https://gist.github.com/eiraho/817ed0fc868073536b1f56a49a25c554) |
