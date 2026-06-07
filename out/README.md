@@ -47,6 +47,7 @@
 | `d2vHZ-t-XCs` | 《寒戰1994》解密何東家族百年恩怨｜AI聲音導航 | [gist](https://gist.github.com/eiraho/9cd58213433c3ec4999d81ab26e4afdb) |
 | `T1P6_AUiEu4` | 諾獎發現人體經絡：《黃帝內經》隱藏的人體密碼 | [gist](https://gist.github.com/eiraho/c893b8a80b630457041e1362d60e7188) |
 | `GLWIb8vAs8s` | 世界劇本：庫柏、科爾曼與三百人委員會 | [gist](https://gist.github.com/eiraho/a3cfdfe041dc0d1eb52363fa5a8df463) |
+| `vdDCvLwXoQA` | 聖嬰睜眼：1877 餓死千萬人的慘劇，2026 哥吉拉級聖嬰即將重演？ | [gist](https://gist.github.com/eiraho/3b70724dfe03e84ce5a1655ed3bff423) |
 | `w7du8qJq_NM` | 死藤水、薩滿與外星爬蟲族 — Michael Harner《薩滿之道》 | [gist](https://gist.github.com/eiraho/41669f56c6754f58ca80b5f64cb3dfc2) |
 | `geUv4CjPpxI` | Agents that remember — Anthropic 記憶與Dreaming系統 | [gist](https://gist.github.com/eiraho/37d018a3f7addb06095f5ca20e33bc13) |
 | `ozVTJm3n2U4` | Claude Code /ultrawork — Workflow 多Agent工作流 | [gist](https://gist.github.com/eiraho/ca35b37e4f8c41d3ae3ae1c80bcf254d) |
