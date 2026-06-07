@@ -57,6 +57,7 @@
 | `H93_BXi19SQ` | Usagi v1.0 + 遊戲引擎對比：Usagi vs Godot vs Bevy | [gist](https://gist.github.com/eiraho/33daf52b5336455bfe75b4c1f8ff7a92) |
 | `tm2tWEclT6w` | MoneyPrinterTurbo：六萬星 GitHub 專案一鍵產 AI 短片 | [gist](https://gist.github.com/eiraho/b88cf0c9c1a079dfc424f35a592d785b) |
 | `otKoagkcQCo` | AI 騙局崩了！科技巨頭 CEO 跪求員工回來？揭秘 19 萬億泡沫破裂真相 | [gist](https://gist.github.com/eiraho/6e958b49ed8512ff810b6a0fd954cc16) |
+| `PRe_Mgyv9fY` | AI 自主滲透：從 SQL 注入都打不明白，到拿下 root 權限 | [gist](https://gist.github.com/eiraho/e752433d0662d2ce966142a36ddfca88) |
 
 ## 流程
 
