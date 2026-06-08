@@ -7,6 +7,7 @@
 
 | 影片 ID | 標題 | Gist |
 |---------|------|------|
+| `_msh7kdYWuk` | 李錄：全球價值投資與時代——十週年演講 | [gist](https://gist.github.com/eiraho/093a42dcfb3b6247e304f803e3c8917c) |
 | `q7w2dYvgqCA` | 當記憶消失：阿爾茲海默症與照護者——胡泳、竇文濤對談 | [gist](https://gist.github.com/eiraho/31c9f519eb2bb4c8c7985a722842350c) |
 | `ZWsZwX6nsV0` | 從 2 萬到 7000 萬：Chris Camillo 的社交套利投資法 | [gist](https://gist.github.com/eiraho/792bced04a02120db9f430923e2963a2) |
 | `US3oaT0SFJQ` | 易經失傳殘卷與秦始皇——馮時、馬未都對談 | [gist](https://gist.github.com/eiraho/d1acc60af904f92f5ec4d56a971b5e32) |
