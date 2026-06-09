@@ -63,6 +63,7 @@
 | `PRe_Mgyv9fY` | AI 自主滲透：從 SQL 注入都打不明白，到拿下 root 權限 | [gist](https://gist.github.com/eiraho/e752433d0662d2ce966142a36ddfca88) |
 | `M-nlZjvyGB0` | WWDC26: Unwrap PaperKit — Apple 開放畫布框架 | [gist](https://gist.github.com/eiraho/e6de28e30fc7d9e4387c7d003c3519e1) |
 | `s8BB8q2MyXc` | WWDC26: What's New in SwiftUI — 2027 五大更新 | [gist](https://gist.github.com/eiraho/c9e1bdd1eefad617bd344794cb944601) |
+| `8t64PukyOIQ` | WWDC26: Elevate Your App's Text Experience with TextKit | [gist](https://gist.github.com/eiraho/819e7e2c59687840d3ed967f4d9f529f) |
 
 ## 流程
 
