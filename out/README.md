@@ -61,6 +61,7 @@
 | `tm2tWEclT6w` | MoneyPrinterTurbo：六萬星 GitHub 專案一鍵產 AI 短片 | [gist](https://gist.github.com/eiraho/b88cf0c9c1a079dfc424f35a592d785b) |
 | `otKoagkcQCo` | AI 騙局崩了！科技巨頭 CEO 跪求員工回來？揭秘 19 萬億泡沫破裂真相 | [gist](https://gist.github.com/eiraho/6e958b49ed8512ff810b6a0fd954cc16) |
 | `PRe_Mgyv9fY` | AI 自主滲透：從 SQL 注入都打不明白，到拿下 root 權限 | [gist](https://gist.github.com/eiraho/e752433d0662d2ce966142a36ddfca88) |
+| `M-nlZjvyGB0` | WWDC26: Unwrap PaperKit — Apple 開放畫布框架 | [gist](https://gist.github.com/eiraho/e6de28e30fc7d9e4387c7d003c3519e1) |
 
 ## 流程
 
