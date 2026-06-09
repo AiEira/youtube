@@ -64,6 +64,7 @@
 | `M-nlZjvyGB0` | WWDC26: Unwrap PaperKit — Apple 開放畫布框架 | [gist](https://gist.github.com/eiraho/e6de28e30fc7d9e4387c7d003c3519e1) |
 | `s8BB8q2MyXc` | WWDC26: What's New in SwiftUI — 2027 五大更新 | [gist](https://gist.github.com/eiraho/c9e1bdd1eefad617bd344794cb944601) |
 | `8t64PukyOIQ` | WWDC26: Elevate Your App's Text Experience with TextKit | [gist](https://gist.github.com/eiraho/819e7e2c59687840d3ed967f4d9f529f) |
+| `m-_BlUdcIvw` | 我逆向了 Claude Design！Huashu Design 開源 skill — 一句話生成任何設計 | [gist](https://gist.github.com/eiraho/13f60a2a5e1eb555d7971adf0de06db5) |
 
 ## 流程
 
