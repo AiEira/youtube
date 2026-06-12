@@ -67,6 +67,10 @@
 | `m-_BlUdcIvw` | 我逆向了 Claude Design！Huashu Design 開源 skill — 一句話生成任何設計 | [gist](https://gist.github.com/eiraho/13f60a2a5e1eb555d7971adf0de06db5) |
 | `h6WTj1Kq78Q` | How Machines Become Minds — Geoffrey Hinton × Joel Hellermark | [gist](https://gist.github.com/eiraho/3d757df9080b51d15474959f80f7c227) |
 | `Tfv8bOQSR_A` | 45 歲才徹底醒悟 — 陳其鋼：時間是藝術的唯一金標準 | [gist](https://gist.github.com/eiraho/dea2aa9333300fedd146dd2b6383be3f) |
+| `Fd4t35xAaGQ` | AI 預測足球：直覺型 AI 打敗專家型 AI — 李毅 | [gist](https://gist.github.com/eiraho/4fc08d93bfddc18deb6c18e1bc522577) |
+| `JBkvkJ6invE` | 全球黑客爆發！IBKR 富途都中招——5 招自保攻略 | [gist](https://gist.github.com/eiraho/70312ac769034797b497cd36260a167b) |
+| `KBXtszV7npQ` | AiToEarn — 兩萬星開源 AI 行銷智能體 | [gist](https://gist.github.com/eiraho/b4ad85b99e9d6e819bbc4a7905da8e22) |
+| `VrD_33Vd2VU` | 愛情就是兩個人都愚鈍——從萬貴妃到翟欣欣 | [gist](https://gist.github.com/eiraho/8bb2a7f2e31f5810d458fa4c76bea814) |
 
 ## 流程
 
