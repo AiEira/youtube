@@ -71,6 +71,7 @@
 | `JBkvkJ6invE` | 全球黑客爆發！IBKR 富途都中招——5 招自保攻略 | [gist](https://gist.github.com/eiraho/70312ac769034797b497cd36260a167b) |
 | `KBXtszV7npQ` | AiToEarn — 兩萬星開源 AI 行銷智能體 | [gist](https://gist.github.com/eiraho/b4ad85b99e9d6e819bbc4a7905da8e22) |
 | `VrD_33Vd2VU` | 愛情就是兩個人都愚鈍——從萬貴妃到翟欣欣 | [gist](https://gist.github.com/eiraho/8bb2a7f2e31f5810d458fa4c76bea814) |
+| `Tn28HA_TaQg` | 西方漢學家研究了100年：上古中國的魔法時代 | [gist](https://gist.github.com/eiraho/cacd52a708faafd6656e6fb50d3ffddc) |
 
 ## 流程
 
