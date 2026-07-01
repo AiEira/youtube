@@ -21,6 +21,7 @@
 | `h_rv2Qs_REk` | 五角大樓 UFO 檔案：阿波羅月球接觸 | [gist](https://gist.github.com/eiraho/de68d4e76d769a7e0ec11ae5ff879637) |
 | `KAqgH3B9YCQ` | 對未來覺得恐懼？拆解《天能》最神結局（斯多葛哲學）| [gist](https://gist.github.com/eiraho/7e44fb663db667dfbd32268014ad02d5) |
 | `0BacrKhaRJI` | AI Agent 四大類頂級 Skill 配置指南 | [gist](https://gist.github.com/eiraho/ef5a48f28c26ad3a9673d61e91fbfbad) |
+| `hBtVGwuJzpk` | AI 不是工具——Yuval Noah Harari 牛津 Tanner Lecture | [gist](https://gist.github.com/eiraho/34aa37c710aed3b301ab6ec5e54e5ef6) |
 | `uD4-uy0GmHE` | Ornith 1.0：能自己寫 Harness 的 Self-Scaffolding LLM | [gist](https://gist.github.com/eiraho/e74342e2dd1ea6bda5078e61abdc51ae) |
 | `3fVEB0u1oYY` | 一條假報錯，接管 2500 億巨頭——AI 安全主戰場已轉移 | [gist](https://gist.github.com/eiraho/93a257b2ead3f0b06c11676d0ca2273c) |
 | `q4I2exv6l8U` | 飛書 CLI 47 天破萬星：淘金時代的序曲 | [gist](https://gist.github.com/eiraho/abdbad324f5a85d2e68b1c23d022baec) |
