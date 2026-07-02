@@ -21,6 +21,7 @@
 | `h_rv2Qs_REk` | 五角大樓 UFO 檔案：阿波羅月球接觸 | [gist](https://gist.github.com/eiraho/de68d4e76d769a7e0ec11ae5ff879637) |
 | `KAqgH3B9YCQ` | 對未來覺得恐懼？拆解《天能》最神結局（斯多葛哲學）| [gist](https://gist.github.com/eiraho/7e44fb663db667dfbd32268014ad02d5) |
 | `0BacrKhaRJI` | AI Agent 四大類頂級 Skill 配置指南 | [gist](https://gist.github.com/eiraho/ef5a48f28c26ad3a9673d61e91fbfbad) |
+| `qd7O5CoMqDg` | PUA 深度拆解：從搭訕藝術到精神控制的黑暗進化史 | [gist](https://gist.github.com/eiraho/841faee17bdf7a0e530a1088a71ac70b) |
 | `TfyPshgMbug` | Grant Sanderson：AI 如何改變數學——3Blue1Brown 訪談 | [gist](https://gist.github.com/eiraho/04cda9af77132ddac555ed3d3b4a27a1) |
 | `jP6tgqG0TUM` | 為什麼賣淫非法？歷史、宗教、家庭與女性投票的力量 | [gist](https://gist.github.com/eiraho/da0a72460075f8c48868790cbb441d15) |
 | `hBtVGwuJzpk` | AI 不是工具——Yuval Noah Harari 牛津 Tanner Lecture | [gist](https://gist.github.com/eiraho/34aa37c710aed3b301ab6ec5e54e5ef6) |
